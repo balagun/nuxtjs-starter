@@ -1,6 +1,18 @@
+import { projects } from "./utils/projectsData";
 
 export default {
   mode: 'universal',
+  generate: {	  
+	  async routes() {
+		  const paths = [];
+		  
+		  projects.forEach(project => {
+			  paths.push(`/project/${project.slug}`);
+			  });
+		  return paths;
+		  }
+	  }
+	
   /*
   ** Headers of the page
   */
